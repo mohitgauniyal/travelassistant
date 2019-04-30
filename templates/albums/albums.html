@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+
+<div class="content">
+    <h1>My Albums</h1>
+    <hr>
+
+    <div class="row">
+        <div class="column">
+            <a href="{% url 'album' %}">
+            <div class="content">
+                <img src="{% static 'img/building.jpg' %}" alt="Mountains" style="width:100%">
+                <h3>My Work</h3>
+                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+            </div>
+            </a>    
+        </div>
+        <div class="column">
+            <div class="content">
+            <img src="{% static 'img/building.jpg' %}" alt="Lights" style="width:100%">
+              <h3>My Work</h3>
+              <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+            </div>
+        </div>
+    </div>    
+
+</div>
+
+{% endblock %}
+
+

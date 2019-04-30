@@ -16,6 +16,10 @@
           <!-- Lightbox -->
           <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
 
+          <link rel="stylesheet" href="{% static 'css/todo.css' %}">
+          <link rel="stylesheet" href="{% static 'css/albums.css' %}">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <title>Realtime Assistant</title>
 </head>
 <body>
@@ -23,14 +27,10 @@
 
     <!-- Top Bar -->
     {% include 'partials/_topbar.html' %}
-
-    <div class="row">
-        <!-- Nav Bar -->
-        {% include 'partials/_navbar.html' %}
-        <!-- Content -->
-        {% block content %} {% endblock %}
-    </div>
-        
+    <!-- Content -->
+    <section>
+        {% block content %} {% endblock %}        
+    </section>
     <!-- Footer -->
     {% include 'partials/_footer.html' %}
 

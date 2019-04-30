@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<section class="mx-auto m-5">
+
+    <div class="container">
+        <form action="#">
+                <div class="input-container">
+                  <i class="fa fa-tasks icon"></i>
+                  <input class="input-field" type="text" placeholder=" Add Task" name="task">
+                    <span>
+                            <button type="submit" class="btn">Add Task</button>
+                    </span>
+                </div>                
+        </form>
+    </div>
+    
+    <div class="container ">
+        <ul class="list-group">
+            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
+                Inbox
+                <span>
+                    <button type="button" class="btn btn-warning">Delete</button>
+                </span>
+            </li>
+            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
+                Ads
+                <span>
+                    <button type="button" class="btn btn-warning">Delete</button>
+                </span>
+            </li>
+            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
+                Junk
+                <span>
+                    <button type="button" class="btn btn-warning">Delete</button>
+                </span>
+            </li>
+        </ul>
+    </div>  
+    
+</section>
+
+
+
+{% endblock %}
+
+
+
+

@@ -1,37 +1,85 @@
-{% load static %}  
+{% load static %} 
+
   <!-- Topbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="{% static 'img/logo.png' %}" class="logo" alt="">
-      </a>
-      <button class="navbar-toggler"  type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         
         <ul class="navbar-nav">
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="#">
+
+          <li
+            {% if '/' == request.path %}
+              class="nav-item mr-3 active"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}
+          >
+            <a class="nav-link" href="{% url 'index' %}">
               Travel Assistant
               <br>
               (Real time application)
             </a>
           </li>
-        </ul>
 
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="register.html">
-              <i class="fas fa-user-plus"></i> Register</a>
-          </li>
-          <li class="nav-item mr-3">
-            <a class="nav-link" href="login.html">
-              <i class="fas fa-sign-in-alt"></i>
 
-              Login</a>
+          <li
+            {% if 'todo' in request.path %}
+            class="nav-item mr-3 active"
+            {% else %}
+              class="nav-item mr-3"
+            {% endif %}          
+          >
+          <a class="nav-link" href="{% url 'todo' %}">
+            Tasks
+          </a>
           </li>
-        </ul>
+
+
+        <li
+          {% if 'albums' in request.path %}
+          class="nav-item mr-3 active"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}          
+        >
+        <a class="nav-link" href="{% url 'albums' %}">
+          Albums
+        </a>
+        </li>
+    
+      </ul>
+ 
+      <ul class="navbar-nav ml-auto">
+ 
+        <li>
+            <img src="{% static 'img/user.png' %}" alt="John Doe" class="rounded-circle" style="width:50px;">
+        </li>
+          &nbsp;&nbsp;
+        <li
+          {% if 'register' in request.path %}
+          class="nav-item mr-3 active"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}          
+        >
+          <a class="nav-link" href="#">
+            <i class="fas fa-user-plus"></i> Register</a>
+        </li>
+
+        <li
+          {% if 'login' in request.path %}
+          class="nav-item mr-3 active"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}          
+        >
+          <a class="nav-link" href="#">
+            <i class="fas fa-sign-in-alt"></i>
+
+            Login</a>
+        </li>
+      </ul>
 
       </div>
     </div>
