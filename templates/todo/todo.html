@@ -2,7 +2,6 @@
 
 {% block content %}
 
-
 <section class="mx-auto m-5">
 
     <div class="container">
@@ -18,26 +17,22 @@
     </div>
     
     <div class="container ">
-        <ul class="list-group">
-            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
-                Inbox
-                <span>
-                    <button type="button" class="btn btn-warning">Delete</button>
-                </span>
-            </li>
-            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
-                Ads
-                <span>
-                    <button type="button" class="btn btn-warning">Delete</button>
-                </span>
-            </li>
-            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
-                Junk
-                <span>
-                    <button type="button" class="btn btn-warning">Delete</button>
-                </span>
-            </li>
-        </ul>
+        {% if tasks %}
+            {% for task in tasks %}
+
+                <ul class="list-group">
+                    <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
+                        {{ task.description }}
+                        <span>
+                            <button type="button" class="btn btn-warning">Delete</button>
+                        </span>
+                    </li>
+                </ul>
+
+            {% endfor %}
+        {% else %}
+            <p>No Task Present</p>
+        {% endif %}
     </div>  
     
 </section>
