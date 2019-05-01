@@ -1,1 +1,32 @@
-<h1>listing</h1>
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container mx-auto m-5">
+{% if album %}
+
+        <h3 style="text-align:center; margin-bottom:15px">Slideshow Gallery : {{ album.title }}</h2>
+
+        {% if photos %}
+        
+        {% for photo in photos %}
+
+        <div>
+            <img src="{{ photo.photo.url }}" style="width:100%">
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+            <h3 style="text-align:center; margin-bottom:15px">No Photos in the Album</h2>
+        {% endif %}
+
+{% else %}
+<h3 style="text-align:center; margin-bottom:15px">No Album</h2>
+{% endif %}
+
+</div>
+
+{% endblock %}

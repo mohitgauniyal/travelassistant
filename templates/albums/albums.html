@@ -10,22 +10,29 @@
     <hr>
 
     <div class="row">
+
+        {% if albums %}
+
+        {% for album in albums %}
+
         <div class="column">
-            <a href="#">
-            <div class="content">
-                <img src="{% static 'img/building.jpg' %}" alt="Mountains" style="width:100%">
-                <h3>My Work</h3>
-                <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+            <a href="{% url 'album' album.id %}">
+            <div class="content">                    
+                <img src="../../media/{{ album.cover }}" alt="{{ album.title }}" style="width:100%; height:200px">
+                <h3>{{ album.title }}</h3>
+                <p>{{ album.description }}</p>
             </div>
             </a>    
         </div>
-        <div class="column">
-            <div class="content">
-            <img src="{% static 'img/building.jpg' %}" alt="Lights" style="width:100%">
-              <h3>My Work</h3>
-              <p>Lorem ipsum dolor sit amet, tempor prodesset eos no. Temporibus necessitatibus sea ei, at tantas oporteat nam. Lorem ipsum dolor sit amet, tempor prodesset eos no.</p>
+
+        {% endfor %}
+
+        {% else %}
+            <div class="col-md-12">
+                <p>No Albums Found.</p>
             </div>
-        </div>
+        {% endif %}
+
     </div>    
 
 </div>
