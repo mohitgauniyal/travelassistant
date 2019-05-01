@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'realtime.apps.RealtimeConfig',
     'todo.apps.TodoConfig',
     'albums.apps.AlbumsConfig',
+    'users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
