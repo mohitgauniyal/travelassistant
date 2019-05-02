@@ -23,39 +23,72 @@
           </li>
 
 
-          <li
-            {% if 'todo' in request.path %}
-            class="nav-item mr-3 active"
-            {% else %}
-              class="nav-item mr-3"
-            {% endif %}          
-          >
-          <a class="nav-link" href="{% url 'todo' %}">
-            Tasks
-          </a>
-          </li>
+          {% if user.is_authenticated %}
+
+                  <li
+                    {% if 'todo' in request.path %}
+                    class="nav-item mr-3 active"
+                    {% else %}
+                      class="nav-item mr-3"
+                    {% endif %}          
+                  >
+                  <a class="nav-link" href="{% url 'todo' %}">
+                    Tasks
+                  </a>
+                  </li>
 
 
-        <li
-          {% if 'albums' in request.path %}
-          class="nav-item mr-3 active"
-          {% else %}
-            class="nav-item mr-3"
-          {% endif %}          
-        >
-        <a class="nav-link" href="{% url 'albums' %}">
-          Albums
-        </a>
-        </li>
+                <li
+                  {% if 'albums' in request.path %}
+                  class="nav-item mr-3 active"
+                  {% else %}
+                    class="nav-item mr-3"
+                  {% endif %}          
+                >
+                <a class="nav-link" href="{% url 'albums' %}">
+                  Albums
+                </a>
+                </li>
+
+
+          {% endif %}
     
       </ul>
  
       <ul class="navbar-nav ml-auto">
  
+        
+        {% if user.is_authenticated %}
+
         <li>
             <img src="{% static 'img/user.png' %}" alt="John Doe" class="rounded-circle" style="width:50px;">
         </li>
           &nbsp;&nbsp;
+
+        <li
+          {% if 'dashboard' in request.path %}
+          class="nav-item mr-3 active"
+          {% else %}
+            class="nav-item mr-3"
+          {% endif %}          
+        >
+          <a class="nav-link" href="{% url 'dashboard' %}">
+            Welcome, {{ user.username }} (Dashboard)</a>
+        </li>
+
+        <li class="nav-item mr-3">
+          <a href="javascript:{document.getElementById('logout').submit()}" 
+          class="nav-link">
+              <i class="fa fa-sign-out"></i> Logout</a>
+              <form id="logout" action="{% url 'logout' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden">
+              </form>
+        </li>        
+        
+        
+        {% else %}
+        
         <li
           {% if 'register' in request.path %}
           class="nav-item mr-3 active"
@@ -77,6 +110,8 @@
           <a class="nav-link" href="{% url 'login' %}">
             <i class="fas fa-sign-in-alt"></i>Login</a>
         </li>
+
+        {% endif %}
       </ul>
 
       </div>
