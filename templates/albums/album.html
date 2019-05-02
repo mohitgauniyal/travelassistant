@@ -7,15 +7,29 @@
 <div class="container mx-auto m-5">
 {% if album %}
 
-        <h3 style="text-align:center; margin-bottom:15px">Slideshow Gallery : {{ album.title }}</h2>
+        <h3 style="text-align:center; margin-bottom:15px">Gallery : {{ album.title }}</h2>
 
         {% if photos %}
         
         {% for photo in photos %}
 
-        <div>
-            <img src="{{ photo.photo.url }}" style="width:100%">
-        </div>
+
+            <div class="responsive">
+                <div class="gallery">
+                  <a target="_blank" href="{{ photo.photo.url }}">
+                    <img src="{{ photo.photo.url }}" alt="Cinque Terre" width="150" height="200">
+                  </a>
+                  <div class="desc">
+                    {% if photo.name %}
+                        {{ photo.name }}
+                    {% else %}  
+                        Photo in {{ photo.album }}
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              
+              
 
         {% endfor %}
 
