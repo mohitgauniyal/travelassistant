@@ -5,9 +5,13 @@
 <section class="mx-auto m-5">
 
     <div class="container">
-        <form action="#">
+        <form action="{% url 'addtask' %}" method="GET">
+            {% csrf_token %}
                 <div class="input-container">
                   <i class="fa fa-tasks icon"></i>
+                    {% if user.is_authenticated %}
+                  <input type="hidden" name="user_id" value="{{ user.id }}">
+                    {% endif %}
                   <input class="input-field" type="text" placeholder=" Add Task" name="task">
                     <span>
                             <button type="submit" class="btn">Add Task</button>
