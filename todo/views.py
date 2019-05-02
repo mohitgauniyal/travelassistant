@@ -1,9 +1,11 @@
 from django.shortcuts import render
 from .models import Task
-
+from django.contrib.auth.models import User
 
 def todo(request):
-    tasks = Task.objects.all()
+
+    if request.user.is_authenticated:
+        tasks = Task.objects.filter(user=request.user.id)
 
     context = {
         'tasks' : tasks

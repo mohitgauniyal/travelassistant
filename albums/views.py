@@ -3,7 +3,9 @@ from .models import Album
 from .models import Photo
 
 def albums(request):
-    albums = Album.objects.all()
+
+    if request.user.is_authenticated:
+        albums = Album.objects.filter(user=request.user.id)
 
     context = {
         'albums' : albums
@@ -22,12 +24,3 @@ def album(request, album_id):
     }
 
     return render(request, 'albums/album.html', context)
-
-
-'''
-def album(request, album_id):
-    album = get_object_or_404(Listing, pk=album_id)
-    context = {
-        'album' : album
-    }
-    return render(request, 'albums/album.html', context)'''
