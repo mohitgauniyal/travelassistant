@@ -26,3 +26,17 @@ def add(request):
             
     else:
         return render(request, 'todo/todo.html',)
+
+
+def delete(request):
+
+    if request.method == 'GET':
+        id = request.GET['task_id']
+
+        if request.user.is_authenticated:
+            task = Task.objects.get(pk=id)
+            task.delete()
+            return redirect('todo')
+    
+    else:
+        return render(request, 'todo/todo.html',)
