@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Album
 from .models import Photo
 
+
 def albums(request):
 
     if request.user.is_authenticated:
@@ -15,6 +16,7 @@ def albums(request):
 
 
 def album(request, album_id):
+    
     album = get_object_or_404(Album, pk=album_id)
     photos = Photo.objects.filter(album=album.id)
 

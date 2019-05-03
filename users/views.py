@@ -4,8 +4,9 @@ from django.contrib.auth.models import User
 
 
 def register(request):
+    
     if request.method == 'POST':
-        # Get Form values
+        
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         username = request.POST['username']
@@ -13,9 +14,9 @@ def register(request):
         password = request.POST['password']
         password2 = request.POST['password2']
 
-        # Check if passwords match
+        
         if password == password2:
-            # Check username
+            
             if User.objects.filter(username=username).exists():
                 messages.error(request, 'Username is taken.')
                 return redirect('register')
@@ -62,9 +63,12 @@ def login(request):
 
 
 def dashboard(request):
+
     return render(request, 'users/dashboard.html')
 
+
 def logout(request):
+
     if request.method == 'POST':
         auth.logout(request)
         messages.success(request, 'You are now Logged out.')
