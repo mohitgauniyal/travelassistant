@@ -29,9 +29,8 @@
                     <ul class="list-group">
                         <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
                             {{ task.description }}
-                            <input type="hidden" name="task_id" value="{{ task.id }}">
                             <span>
-                                <button type="submit" class="btn btn-warning">Delete</button>
+                                <button type="submit" name="task_id" value="{{ task.id }}" class="btn btn-warning">Delete</button>
                             </span>
                         </li>
                     </ul>
