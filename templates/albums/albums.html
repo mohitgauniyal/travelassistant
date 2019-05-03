@@ -5,13 +5,69 @@
 {% block content %}
 
 <div class="container mx-auto m-5">
-    <h3 style="text-align:center; margin-bottom:15px">My Albums</h3>     
+
+
+    <div class="container">
+        <ul class="list-group">
+            <li class="col-8 list-group-item d-flex justify-content-between align-items-center">
+                <h3>
+                    My Albums :
+                </h3>     
+                <span>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Album</button>   
+                </span>
+            </li>    
+        </ul>
+    </div>
+    
+    <br>
+    <hr>
+    <br>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Album</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <form action="{% url 'addalbum' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+              <div class="form-group">
+                <label class="col-form-label">Name:</label>
+                <input type="text" class="form-control" name="album_name">
+              </div>
+              <div class="form-group">
+                    <label class="col-form-label">Description:</label>
+                    <input type="text" class="form-control" name="album_description">
+              </div>
+              <div class="form-group">
+                    <label class="col-form-label">Cover photo:</label>
+                    <input type="file" name="album_cover" >
+              </div>
+              <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Add</button>
+              </div>
+                  
+            </form>
+        </div>
+
+        </div>
+      </div>
+    </div>
+
 
         {% if albums %}
             {% for album in albums %}
 
                 <div class="responsive">
-                    <div class="gallery">
+                    <div class="gallery p-2">
                         <a href="{% url 'album' album.id %}">
                             <div>                    
                                 <img src="../../media/{{ album.cover }}" alt="{{ album.title }}" style="width:100%; height:200px">
