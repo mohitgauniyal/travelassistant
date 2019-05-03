@@ -1,2 +1,3 @@
-
-static/* linguist-vendored
+travelassistant/static/css/* linguist-vendored
+static/css/* linguist-vendored
+*.css linguist-vendored
