@@ -47,3 +47,24 @@ def addalbum(request):
     else:
         return render(request, 'login')
         messages.error(request, 'You need to login first')
+
+
+def addphoto(request):
+
+    if request.user.is_authenticated:        
+
+        if request.method == 'POST' and request.FILES['img']:
+            album_id = request.POST['album_id']
+            name = request.POST['name']
+            img = request.FILES['img']
+
+            album = Album.objects.get(id=album_id)
+            photo = Photo(album=album, name=name, photo=img)
+
+            photo.save()
+
+            return redirect('album', album_id)
+
+    else:
+        return render(request, 'login')
+        messages.error(request, 'You need to login first')
