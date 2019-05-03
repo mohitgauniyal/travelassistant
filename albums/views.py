@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.core.files.storage import FileSystemStorage
+from django.contrib import messages
 from .models import Album
 from .models import Photo
 
@@ -26,3 +28,22 @@ def album(request, album_id):
     }
 
     return render(request, 'albums/album.html', context)
+
+
+def addalbum(request):
+
+    if request.user.is_authenticated:        
+
+        if request.method == 'POST' and request.FILES['album_cover']:
+            title = request.POST['album_name']
+            description = request.POST['album_description']
+            album_cover = request.FILES['album_cover']
+
+            album = Album(user=request.user, title=title, description=description, cover=album_cover)
+
+            album.save()
+
+            return redirect('albums')
+    else:
+        return render(request, 'login')
+        messages.error(request, 'You need to login first')
