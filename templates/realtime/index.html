@@ -2,37 +2,48 @@
 
 {% block content %}
 
-<div class="row">
+<div class="row"" >
+
         <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
-                        <a class="nav-link" id="v-pills-traffic-tab" data-toggle="pill" href="#v-pills-traffic" role="tab" aria-controls="v-pills-traffic" aria-selected="false">Traffic</a>
-                        <a class="nav-link" id="v-pills-hotels-tab" data-toggle="pill" href="#v-pills-hotels" role="tab" aria-controls="v-pills-hotels" aria-selected="false">Hotels</a>
-                        <a class="nav-link" id="v-pills-restaurants-tab" data-toggle="pill" href="#v-pills-restaurants" role="tab" aria-controls="v-pills-restaurants" aria-selected="false">Restaurants</a>
-                        <a class="nav-link" id="v-pills-locationphotos-tab" data-toggle="pill" href="#v-pills-locationphotos" role="tab" aria-controls="v-pills-locationphotos" aria-selected="false">Location photos</a>
-                        <a class="nav-link" id="v-pills-atms-tab" data-toggle="pill" href="#v-pills-atms" role="tab" aria-controls="v-pills-atms" aria-selected="false">Atms</a>
-                        <a class="nav-link" id="v-pills-touristplaces-tab" data-toggle="pill" href="#v-pills-touristplaces" role="tab" aria-controls="v-pills-touristplaces" aria-selected="false">Tourist places</a>
-                        <a class="nav-link" id="v-pills-hospitals-tab" data-toggle="pill" href="#v-pills-hospitals" role="tab" aria-controls="v-pills-hospitals" aria-selected="false">Hospitals</a>
-                        <a class="nav-link" id="v-pills-weather-tab" data-toggle="pill" href="#v-pills-weather" role="tab" aria-controls="v-pills-weather" aria-selected="false">Weather</a>
-                        <a class="nav-link" id="v-pills-cryptorates-tab" data-toggle="pill" href="#v-pills-cryptorates" role="tab" aria-controls="v-pills-cryptorates" aria-selected="false">Crypto rates</a>
-                        <a class="nav-link" id="v-pills-trends-tab" data-toggle="pill" href="#v-pills-trends" role="tab" aria-controls="v-pills-trends" aria-selected="false">Trends</a>
+
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="findPlaces(500,'home'); return false;">Home</a>
+                
+                <a class="nav-link" id="v-pills-traffic-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-traffic" aria-selected="false" onclick="findPlaces(500,'traffic'); return false;">Traffic</a>
+                
+                <a class="nav-link" id="v-pills-hotels-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hotels" aria-selected="false" onclick="findPlaces(1000,'point_of_interest'); return false;">Hotels</a>
+                
+                <a class="nav-link" id="v-pills-restaurants-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-restaurants" aria-selected="false" onclick="findPlaces(500,'restaurant'); return false;">Restaurants</a>
+                
+                <a class="nav-link" id="v-pills-locationphotos-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-locationphotos" aria-selected="false">Location photos</a>
+                
+                <a class="nav-link" id="v-pills-atms-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-atms" aria-selected="false" onclick="findPlaces(1000,'atm'); return false;">Atms</a>
+                
+                <a class="nav-link" id="v-pills-touristplaces-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-touristplaces" aria-selected="false" onclick="findPlaces(2000,'food'); return false;">Tourist places</a>
+                
+                <a class="nav-link" id="v-pills-hospitals-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hospitals" aria-selected="false" onclick="findPlaces(1000,'hospital'); return false;">Hospitals</a>
+                
+                <a class="nav-link" id="v-pills-weather-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-weather" aria-selected="false">Weather</a>
+                
+                <a class="nav-link" id="v-pills-cryptorates-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-cryptorates" aria-selected="false">Crypto rates</a>
+                
+                <a class="nav-link" id="v-pills-trends-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-trends" aria-selected="false">Trends</a>
+
                 </div>
         </div>
-                        
+      
         <div class="col-9">
-                <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">Home</div>
-                        <div class="tab-pane fade" id="v-pills-traffic" role="tabpanel" aria-labelledby="v-pills-traffic-tab">Traffic</div>
-                        <div class="tab-pane fade" id="v-pills-hotels" role="tabpanel" aria-labelledby="v-pills-hotels-tab">Hotels</div>        
-                        <div class="tab-pane fade" id="v-pills-restaurants" role="tabpanel" aria-labelledby="v-pills-restaurants-tab">Restaurants</div>
-                        <div class="tab-pane fade" id="v-pills-locationphotos" role="tabpanel" aria-labelledby="v-pills-locationphotos-tab">Location photos</div>
-                        <div class="tab-pane fade" id="v-pills-atms" role="tabpanel" aria-labelledby="v-pills-atms-tab">Atms</div>
-                        <div class="tab-pane fade" id="v-pills-touristplaces" role="tabpanel" aria-labelledby="v-pills-touristplaces-tab">Tourist places</div>
-                        <div class="tab-pane fade" id="v-pills-hospitals" role="tabpanel" aria-labelledby="v-pills-hospitals-tab">Hospitals</div>
-                        <div class="tab-pane fade" id="v-pills-weather" role="tabpanel" aria-labelledby="v-pills-weather-tab">Weather</div>
-                        <div class="tab-pane fade" id="v-pills-cryptorates" role="tabpanel" aria-labelledby="v-pills-cryptorates-tab">Crypto rates</div>
-                        <div class="tab-pane fade" id="v-pills-trends" role="tabpanel" aria-labelledby="v-pills-trends-tab">Trends</div>
+          <div class="tab-content" id="v-pills-tabContent">
+      
+      
+              <div class="tab-pane fade" id="sidecolumn">
+              
+                <div id="gmap_canvas" style="height: 400px;position: relative; width: 600px;">
+                  
                 </div>
+              </div>
+      
+          </div>
         </div>    
 </div>
 
