@@ -9,6 +9,7 @@ var ln = 78.023493
 
 function showmap() {
     document.getElementById('gmap_canvas').style.display = 'block';
+    document.getElementById('weather').style.display = 'none';
     document.getElementById('crypto').style.display = 'none';
   }
 

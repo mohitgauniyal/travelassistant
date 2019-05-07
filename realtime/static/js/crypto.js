@@ -1,6 +1,7 @@
-function hidemap() {
-    document.getElementById('gmap_canvas').style.display='none'
-    document.getElementById('crypto').style.display='block'
+function showcrypto() {
+    document.getElementById('gmap_canvas').style.display='none';
+    document.getElementById('weather').style.display = 'none';
+    document.getElementById('crypto').style.display='block';
   }
   
   
