@@ -7,44 +7,55 @@
         <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 
-                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="findPlaces(500,'home'); return false;">Home</a>
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-home" aria-selected="true" onclick="showmap();findPlaces(500,'home'); return false;">Home</a>
                 
-                <a class="nav-link" id="v-pills-traffic-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-traffic" aria-selected="false" onclick="findPlaces(500,'traffic'); return false;">Traffic</a>
+                <a class="nav-link" id="v-pills-traffic-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-traffic" aria-selected="false" onclick="showmap();findPlaces(500,'traffic'); return false;">Traffic</a>
                 
-                <a class="nav-link" id="v-pills-hotels-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hotels" aria-selected="false" onclick="findPlaces(1000,'point_of_interest'); return false;">Hotels</a>
+                <a class="nav-link" id="v-pills-hotels-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hotels" aria-selected="false" onclick="showmap();findPlaces(1000,'hotel'); return false;">Hotels</a>
                 
-                <a class="nav-link" id="v-pills-restaurants-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-restaurants" aria-selected="false" onclick="findPlaces(500,'restaurant'); return false;">Restaurants</a>
+                <a class="nav-link" id="v-pills-restaurants-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-restaurants" aria-selected="false" onclick="showmap();findPlaces(500,'restaurant'); return false;">Restaurants</a>
                 
-                <a class="nav-link" id="v-pills-locationphotos-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-locationphotos" aria-selected="false">Location photos</a>
+                <!--<a class="nav-link" id="v-pills-locationphotos-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-locationphotos" aria-selected="false">Location photos</a>-->
                 
-                <a class="nav-link" id="v-pills-atms-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-atms" aria-selected="false" onclick="findPlaces(1000,'atm'); return false;">Atms</a>
+                <a class="nav-link" id="v-pills-atms-tab" data-toggle="pill" href="#" role="tab" aria-controls="v-pills-atms" aria-selected="false" onclick="showmap();findPlaces(1000,'atm'); return false;">Atms</a>
                 
-                <a class="nav-link" id="v-pills-touristplaces-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-touristplaces" aria-selected="false" onclick="findPlaces(2000,'food'); return false;">Tourist places</a>
+                <a class="nav-link" id="v-pills-touristplaces-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-touristplaces" aria-selected="false" onclick="showmap();findPlaces(2000,'food'); return false;">Tourist places</a>
                 
-                <a class="nav-link" id="v-pills-hospitals-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hospitals" aria-selected="false" onclick="findPlaces(1000,'hospital'); return false;">Hospitals</a>
+                <a class="nav-link" id="v-pills-hospitals-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-hospitals" aria-selected="false" onclick="showmap();findPlaces(1000,'hospital'); return false;">Hospitals</a>
                 
                 <a class="nav-link" id="v-pills-weather-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-weather" aria-selected="false">Weather</a>
                 
-                <a class="nav-link" id="v-pills-cryptorates-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-cryptorates" aria-selected="false">Crypto rates</a>
+                <a class="nav-link" id="v-pills-cryptorates-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-cryptorates" aria-selected="false" onclick="hidemap();crypto();">Crypto rates</a>
                 
-                <a class="nav-link" id="v-pills-trends-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-trends" aria-selected="false">Trends</a>
+                <!--<a class="nav-link" id="v-pills-trends-tab" data-toggle="pill" href="#sidecolumn" role="tab" aria-controls="v-pills-trends" aria-selected="false">Trends</a>-->
 
                 </div>
         </div>
       
-        <div class="col-9">
-          <div class="tab-content" id="v-pills-tabContent">
-      
-      
-              <div class="tab-pane fade" id="sidecolumn">
-              
-                <div id="gmap_canvas" style="height: 400px;position: relative; width: 600px;">
-                  
-                </div>
+
+      <div class="col-9">
+        <div class="tab-content" id="v-pills-tabContent">
+          
+            <div class="tab-pane fade" id="sidecolumn">              
+              <div id="gmap_canvas" style="height: 400px;position: relative; width: 600px;">
               </div>
-      
-          </div>
-        </div>    
+            </div>
+
+            <div id="crypto" class="container" style="display: none;">
+              <div>
+                <div class="currencies">  
+                  <i class="fas fa-rupee-sign" id="inr-button" title="Change currency to INR"></i>
+                  <i class="fas fa-dollar-sign" id="usd-button" title="Change currency to USD"></i>
+                  <i class="fas fa-pound-sign" id="gbp-button" title="Change currency to GBP"></i>
+                  <i class="fas fa-euro-sign" id="eur-button" title="Change currency to EUR"></i>
+                  &nbsp;&nbsp;&nbsp;&nbsp; 1 BTC = <span id="btc-price"></span>
+                </div>
+                <div class="container m-8 chart"><canvas id="myChart" ></canvas></div>
+              </div>
+            </div>
+    
+        </div>
+      </div>    
 </div>
 
 
