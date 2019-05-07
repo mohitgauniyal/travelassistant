@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+
+
+.rates{
+  margin: 20px;
+  font-size: 1.25em;
+}
+.currencies i{
+  color: steelblue;
+  font-size: 1.5em;
+  margin: 0 10px;
+}
+
+.currencies i:hover{
+  color:black;
+  cursor: pointer;
+}
+
+#btc-price{
+  font-size: 1.25em;
+  color: green;
+  font-weight: bold;
+}
