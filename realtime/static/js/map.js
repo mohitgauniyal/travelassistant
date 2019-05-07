@@ -7,6 +7,11 @@ var lt = 30.2846463
 var ln = 78.023493
 
 
+function showmap() {
+    document.getElementById('gmap_canvas').style.display = 'block';
+    document.getElementById('crypto').style.display = 'none';
+  }
+
 
 function initialize() {
     // prepare Geocoder
