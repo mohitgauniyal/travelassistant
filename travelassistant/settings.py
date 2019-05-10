@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.humanize',
+    'social_django',
+    'core'
 ]
 
 MIDDLEWARE = [
@@ -67,6 +69,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends', # <- Here
+                'social_django.context_processors.login_redirect', # <- Here
             ],
         },
     },
@@ -104,6 +108,42 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+
+AUTHENTICATION_BACKENDS = [
+    'social_core.backends.open_id.OpenIdAuth',
+    'social_core.backends.google.GoogleOpenId',
+    'social_core.backends.google.GoogleOAuth2',    
+    'social_core.backends.linkedin.LinkedinOAuth2',
+    'social_core.backends.instagram.InstagramOAuth2',
+    'social_core.backends.facebook.FacebookOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='438227676150-dk06daconeqjrhgb2i9dcmbh4jmngpsk.apps.googleusercontent.com'  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'sBaTmf64PI7dviulOc-UEgyf' #Paste Secret Key
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '866307917052595' # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = 'ab0e32fb9f2e5ff24dad737099954103' # App Secret
+
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email'] # add this
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+# add this
+'fields': 'id, name, email'
+}
+SOCIAL_AUTH_FACEBOOK_EXTRA_DATA = [
+# add this
+('name', 'name'),
+('email', 'email'),
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
