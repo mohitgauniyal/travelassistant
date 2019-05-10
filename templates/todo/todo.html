@@ -8,7 +8,7 @@
         <form action="{% url 'addtask' %}" method="GET">
             {% csrf_token %}
                 <div class="input-container">
-                  <i class="fa fa-tasks icon"></i>
+                  <i class="fa fa-tasks"></i>
                     {% if user.is_authenticated %}
                   <input type="hidden" name="user_id" value="{{ user.id }}">
                     {% endif %}
