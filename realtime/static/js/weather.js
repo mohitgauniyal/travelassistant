@@ -9,7 +9,7 @@ function showweather() {
     var owAppId = "489706503860fc84259653e9b1e4d0b4";
     
     function displayWeather(unitType) {
-        var lat = 30.3165,long = 78.0322,
+        var lat = 30.327684,long = 78.081208,
         owApiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + long + "&units=" + unitType + "&APPID=" + owAppId;
         getWeather(owApiUrl, unitType); 
     }

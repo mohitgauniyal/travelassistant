@@ -3,8 +3,10 @@ var map;
 var markers = Array();
 var infos = Array();
 
-var lt = 30.2846463
-var ln = 78.023493
+var lt = 30.327684
+var ln = 78.081208
+
+
 
 
 function showmap() {
@@ -17,7 +19,15 @@ function showmap() {
 function initialize() {
     // prepare Geocoder
     geocoder = new google.maps.Geocoder();
+
     // set initial position (New York)
+
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            console.log(lt,ln);
+        });
+    }
+
     var myLatlng = new google.maps.LatLng(lt, ln);
     var myOptions = { // default map options
         zoom: 17,
@@ -32,10 +42,10 @@ function initialize() {
         position: someplace,
         map: map,
         icon: 'icon.svg',
-        title: 'My position'
+        title: 'Current Location'
       });
       var infowindow = new google.maps.InfoWindow({
-        content: 'My position'
+        content: 'Current Location'
       });
       marker.addListner(marker, 'click', (function(marker){        
         infowindow.open(map, marker);
