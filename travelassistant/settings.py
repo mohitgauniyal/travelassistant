@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/2.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.1/ref/settings/
 """
-
+from dotenv import load_dotenv
 from django.contrib.messages import constants as messages
 import os
 
@@ -126,13 +126,14 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_URL = 'logout'
 LOGOUT_REDIRECT_URL = 'login'
 
+load_dotenv()
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '438227676150-dk06daconeqjrhgb2i9dcmbh4jmngpsk.apps.googleusercontent.com'  # Paste CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'sBaTmf64PI7dviulOc-UEgyf'  # Paste Secret Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv('GOOGLE_OAUTH2_KEY')
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv('GOOGLE_OAUTH2_SECRET')
 
 
-SOCIAL_AUTH_FACEBOOK_KEY = '866307917052595'  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = 'ab0e32fb9f2e5ff24dad737099954103'  # App Secret
+SOCIAL_AUTH_FACEBOOK_KEY = os.getenv('FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.getenv('FACEBOOK_SECRET')
 
 SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']  # add this
 SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
